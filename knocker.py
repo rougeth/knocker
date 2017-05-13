@@ -20,7 +20,7 @@ def knock(host, knock_seq, delay):
         time.sleep(delay)
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(prog='knocker', description=knock.__doc__)
     parser.add_argument('host', help='Hostname or IP address of the host')
     parser.add_argument('ports', nargs='+', type=int, help='Ports to knock')
