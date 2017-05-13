@@ -16,10 +16,10 @@ Yet another port knock client.
 
 #### Example server
 
-The `knock_server_example.py` is just a socket server that listen 3 different  
-ports and print a message after a ping on it.
+The `example_server.py` is just a socket server that listen 3 different
+ports and print a message after receive a ping on it.
 
 ```
-$ python knock_server_example.py
+$ python example_server.py
 Listening ports: 49485 38749 42846
 ```
