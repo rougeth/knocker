@@ -1,10 +1,11 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 
 setup(
     name='knocker',
     description='Port knocking client',
-    version='0.1.1',
+    version='0.1.2',
+    py_modules=['knocker'],
     entry_points={
         'console_scripts': ['knocker=knocker:main'],
     },
