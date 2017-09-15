@@ -12,7 +12,10 @@ Yet another port knock client.
 
 #### Running
 
-`$ knocker your.server.domain 8001 8002 8003`
+```bash
+$ knocker your.server.domain 8001 8002 8003
+knock... knock...
+```
 
 
 ##### Getting help
