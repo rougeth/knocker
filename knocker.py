@@ -1,14 +1,17 @@
-import argparse
+iimport argparse
 import socket
 import time
 
 
-def knock(host, knock_seq, delay):
+def knock(host, knock_seq, delay, protocol):
     """Knock host and port using tcp connection"""
 
     for port in knock_seq:
+        if protocol == 'tcp':
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        else:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.setblocking(False)
 
         try:
@@ -26,8 +29,13 @@ def main():
     parser.add_argument('ports', nargs='+', type=int, help='Ports to knock')
     parser.add_argument('-d', '--delay', type=int, default=200,
                         help='Milliseconds between each knock')
+    parser.add_argument('-p', '--protocol', default='tcp')
 
     args = parser.parse_args()
 
+    if not(args.protocol.lower() == 'tcp' or args.protocol.lower() == 'udp'):
+        print('Not a valid protocol. Use udp or tcp')
+        exit()
+
     print('knock... knock...')
-    knock(args.host, args.ports, args.delay/1000)
+    knock(args.host, args.ports, args.delay/1000, args.protocol.lower())
