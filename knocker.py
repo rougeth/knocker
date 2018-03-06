@@ -1,4 +1,4 @@
-iimport argparse
+import argparse
 import socket
 import time
 
@@ -33,7 +33,7 @@ def main():
 
     args = parser.parse_args()
 
-    if not(args.protocol.lower() == 'tcp' or args.protocol.lower() == 'udp'):
+    if not(args.protocol.lower() in ['tcp','udp']):
         print('Not a valid protocol. Use udp or tcp')
         exit()
 
