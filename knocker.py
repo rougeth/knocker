@@ -29,13 +29,9 @@ def main():
     parser.add_argument('ports', nargs='+', type=int, help='Ports to knock')
     parser.add_argument('-d', '--delay', type=int, default=200,
                         help='Milliseconds between each knock')
-    parser.add_argument('-p', '--protocol',choices=['tcp', 'udb'], default='tcp')
+    parser.add_argument('-p', '--protocol',choices=['tcp', 'udp'], default='tcp')
     
     args = parser.parse_args()
-
-    if not(args.protocol.lower() in ['tcp','udp']):
-        print('Not a valid protocol. Use udp or tcp')
-        exit()
 
     print('knock... knock...')
     knock(args.host, args.ports, args.delay/1000, args.protocol.lower())
