@@ -30,8 +30,8 @@ def main():
     parser.add_argument('-d', '--delay', type=int, default=200,
                         help='Milliseconds between each knock')
     parser.add_argument('-p', '--protocol',choices=['tcp', 'udp'], default='tcp')
-    
+
     args = parser.parse_args()
 
     print('knock... knock...')
-    knock(args.host, args.ports, args.delay/1000, args.protocol.lower())
+    knock(args.host, args.ports, args.delay/1000, args.protocol)
